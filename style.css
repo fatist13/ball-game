@@ -3,7 +3,10 @@
     margin: 0;
   }
   canvas {
-    background: #eee;
+    background: white;
     display: block;
     margin: 0 auto;
+  }
+  body {
+    background-color: black;
   }
