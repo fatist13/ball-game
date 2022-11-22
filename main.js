@@ -18,6 +18,7 @@ var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 let score = 0;
+let lives = 3;
 
 var bricks = [];
 for (var c = 0; c < brickColumnCount; c++) {
@@ -29,6 +30,7 @@ for (var c = 0; c < brickColumnCount; c++) {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
 
 function keyDownHandler(e) {
     if (e.key == "Right" || e.key == "ArrowRight") {
@@ -47,6 +49,14 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+
+function mouseMoveHandler(e) {
+    const relativeX = e.clientX - canvas.offsetLeft;
+    if (relativeX > 0 && relativeX < canvas.width) {
+    paddleX = relativeX - paddleWidth / 2;
+    }
+}
+
 function collisionDetection() {
     for (let c = 0; c < brickColumnCount; c++) {
         for (let r = 0; r < brickRowCount; r++) {
@@ -64,7 +74,6 @@ function collisionDetection() {
               if (score === brickRowCount * brickColumnCount) {
                 alert("YOU WIN, CONGRATULATIONS!");
                 document.location.reload();
-                clearInterval(interval); // Needed for Chrome to end game
               }
             }
           }
@@ -74,22 +83,29 @@ function collisionDetection() {
 
 function drawScore() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "white";
     ctx.fillText(`Score: ${score}`, 8, 20);
   }
   
+function drawLives() {
+    ctx.font = "16px Times New Roman";
+    ctx.fillStyle = "white";
+    ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+}
+
+
 
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
 }
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
 }
@@ -103,7 +119,7 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "red";
+                ctx.fillStyle = "green";
                 ctx.fill();
                 ctx.closePath();
             }
@@ -116,6 +132,7 @@ function draw() {
     drawBricks();
     drawBall();
     drawPaddle();
+    drawLives();
     drawScore();
     collisionDetection();
 
@@ -132,9 +149,17 @@ function draw() {
             }
         }
         else {
-            alert("GAME OVER");
-            document.location.reload();
-            clearInterval(interval); // Needed for Chrome to end game
+            lives--;
+        if (!lives) {
+         alert("GAME OVER");
+        document.location.reload();
+        } else {
+         x = canvas.width / 2;
+        y = canvas.height - 30;
+        dx = 2;
+        dy = -2;
+        paddleX = (canvas.width - paddleWidth) / 2;
+        }
         }
     }
 
@@ -147,6 +172,7 @@ function draw() {
 
     x += dx;
     y += dy;
+    requestAnimationFrame(draw);
 }
 
-var interval = setInterval(draw, 10);
+draw();
