@@ -5,8 +5,8 @@ let x = canvas.width / 2;
 let y = canvas.height - 30;
 let dx = 5;
 let dy = -5;
-let paddleHeight = 10;
-let paddleWidth = 75;
+let paddleHeight = 9;
+let paddleWidth = 95;
 let paddleX = (canvas.width - paddleWidth) / 2;
 let rightPressed = false;
 let leftPressed = false;
@@ -37,7 +37,7 @@ function keyDownHandler(e) {
     }
     else if (e.key === "Left" || e.key === "ArrowLeft") {
         leftPressed = true;
-    }
+    } 
 }
 
 function keyUpHandler(e) {
@@ -150,8 +150,8 @@ function draw() {
         else {
             lives--;
             score--;
-        if (!lives) {
-         alert("GAME OVER");
+        if (!lives && score < 80) {
+            alert("GAME OVER");
         document.location.reload();
         } else {
          x = canvas.width / 2;
