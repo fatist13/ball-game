@@ -3,10 +3,10 @@
     margin: 0;
   }
   canvas {
-    background: #353238;
+    background: black;
     display: block;
     margin: 0 auto;
   }
   body {
-    background-color: black;
+    background-color: #01110A;
   }
