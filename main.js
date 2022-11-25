@@ -30,6 +30,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
+//btn.addEventListener("click", reloadButton);
 
 function keyDownHandler(e) {
     if (e.key === "Right" || e.key === "ArrowRight") {
@@ -152,14 +153,14 @@ function draw() {
             dx++;
             dy--;
         if (!lives) {
-            drawGameOver();
-            //alert("GAME OVER");
-            function drawGameOver () {
-                ctx.font = "Time New Roman";
-                ctx.fillStyle = "white";
-                ctx.fillText("GAME OVER", 450, 400);
-            }
-            //document.location.reload();
+            //drawGameOver();
+            alert("GAME OVER");
+            //function drawGameOver () {
+                //ctx.font = "Time New Roman";
+                //ctx.fillStyle = "white";
+                //ctx.fillText("GAME OVER", 450, 400);
+            //}
+            document.location.reload();
             } else {
             x = canvas.width / 2;
             y = canvas.height - 30;
@@ -183,3 +184,7 @@ function draw() {
 }
 
 draw();
+
+//function reloadButton() {
+    document.Location.reload();
+//}
