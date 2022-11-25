@@ -85,15 +85,13 @@ function drawScore() {
     ctx.font = "Time New Roman";
     ctx.fillStyle = "white";
     ctx.fillText(`Score: ${score}`, 8, 20);
-  }
+}
   
 function drawLives() {
     ctx.font = "16px Times New Roman";
     ctx.fillStyle = "white";
     ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
 }
-
-
 
 function drawBall() {
     ctx.beginPath();
@@ -102,13 +100,16 @@ function drawBall() {
     ctx.fill();
     ctx.closePath();
 }
+
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
+
 }
+
 function drawBricks() {
     for (let c = 0; c < brickColumnCount; c++) {
         for (let r = 0; r < brickRowCount; r++) {
@@ -186,5 +187,5 @@ function draw() {
 draw();
 
 //function reloadButton() {
-    document.Location.reload();
+    //document.Location.reload();
 //}
