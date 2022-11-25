@@ -10,3 +10,7 @@
   body {
     background-color: #01110A;
   }
+  button {
+    display: block;
+    margin: 0 auto;
+  }

@@ -3,8 +3,8 @@ let ctx = canvas.getContext("2d");
 let ballRadius = 10;
 let x = canvas.width / 2;
 let y = canvas.height - 30;
-let dx = 5;
-let dy = -5;
+let dx = 9;
+let dy = -9;
 let paddleHeight = 9;
 let paddleWidth = 95;
 let paddleX = (canvas.width - paddleWidth) / 2;
@@ -149,17 +149,24 @@ function draw() {
         }
         else {
             lives--;
-            score--;
-        if (!lives && score < 80) {
-            alert("GAME OVER");
-        document.location.reload();
-        } else {
-         x = canvas.width / 2;
-        y = canvas.height - 30;
-        dx = 5;
-        dy = -5;
-        paddleX = (canvas.width - paddleWidth) / 2;
-        }
+            dx++;
+            dy--;
+        if (!lives) {
+            drawGameOver();
+            //alert("GAME OVER");
+            function drawGameOver () {
+                ctx.font = "Time New Roman";
+                ctx.fillStyle = "white";
+                ctx.fillText("GAME OVER", 450, 400);
+            }
+            //document.location.reload();
+            } else {
+            x = canvas.width / 2;
+            y = canvas.height - 30;
+            dx = 9;
+            dy = -9;
+            paddleX = (canvas.width - paddleWidth) / 2;
+            }
         }
     }
 
