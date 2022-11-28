@@ -68,6 +68,7 @@ function collisionDetection() {
               y > b.y &&
               y < b.y + brickHeight
             ) {
+              dx = +dx
               dy = -dy;
               b.status = 0;
               score++;
@@ -82,13 +83,13 @@ function collisionDetection() {
 }
 
 function drawScore() {
-    ctx.font = "Time New Roman";
+    ctx.font = "16px Amiko";
     ctx.fillStyle = "white";
     ctx.fillText(`Score: ${score}`, 8, 20);
 }
   
 function drawLives() {
-    ctx.font = "16px Times New Roman";
+    ctx.font = "16px Amiko";
     ctx.fillStyle = "white";
     ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
 }
@@ -96,7 +97,7 @@ function drawLives() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#FBFBFF";
     ctx.fill();
     ctx.closePath();
 }
@@ -104,7 +105,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#FBFBFF";
     ctx.fill();
     ctx.closePath();
 

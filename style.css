@@ -3,12 +3,12 @@
     margin: 0;
   }
   canvas {
-    background: black;
+    background: #01110A;
     display: block;
     margin: 0 auto;
   }
   body {
-    background-color: #01110A;
+    background-color: #00120B;
   }
   button {
     display: block;
