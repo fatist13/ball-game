@@ -150,8 +150,8 @@ function draw() {
       }
     } else {
       lives--;
-      dx++;
-      dy--;
+      dx--;
+      dy++;
       if (!lives) {
         alert("GAME OVER");
         document.location.reload();
