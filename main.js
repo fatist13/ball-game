@@ -122,7 +122,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "darkred";
         ctx.fill();
         ctx.closePath();
       }
@@ -151,8 +151,8 @@ function draw() {
       }
     } else {
       lives--;
-      //dx--;
-      //dy++;
+      dx--;
+      dy++;
       if (!lives) {
         alert("GAME OVER");
         document.location.reload();
