@@ -93,7 +93,7 @@ function drawScore() {
 function drawLives() {
   ctx.font = "16px Amiko";
   ctx.fillStyle = "white";
-  ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+  ctx.fillText(`Lives: ${lives}`, canvas.width - 95, 20);
 }
 
 function drawBall() {
@@ -122,7 +122,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "darkred";
+        ctx.fillStyle = "#FBFBFF";
         ctx.fill();
         ctx.closePath();
       }
