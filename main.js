@@ -153,7 +153,7 @@ function draw() {
       lives--;
       dx--;
       dy++;
-      if (!lives) {
+      if (lives === 0) {
         alert("GAME OVER");
         document.location.reload();
       } else {
