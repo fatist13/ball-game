@@ -122,7 +122,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "#FBFBFF";
+        ctx.fillStyle = "green";
         ctx.fill();
         ctx.closePath();
       }
