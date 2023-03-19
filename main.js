@@ -6,15 +6,15 @@ let y = canvas.height - 30;
 let dx = 5;
 let dy = -5;
 let paddleHeight = 9;
-let paddleWidth = 95;
+let paddleWidth = 97;
 let paddleX = (canvas.width - paddleWidth) / 2;
 let rightPressed = false;
 let leftPressed = false;
-let brickRowCount = 8;
-let brickColumnCount = 10;
+let brickRowCount = 9;
+let brickColumnCount = 11;
 let brickWidth = 75;
-let brickHeight = 20;
-let brickPadding = 10;
+let brickHeight = 21;
+let brickPadding = 11;
 let brickOffsetTop = 30;
 let brickOffsetLeft = 30;
 let score = 0;
@@ -75,7 +75,7 @@ function collisionDetection() {
           if (
             (score === brickRowCount * brickColumnCount)
           ) {
-            alert("You Win, Congratulations.");
+            alert("You Win.");
             document.location.reload();
           }
         }
@@ -85,21 +85,21 @@ function collisionDetection() {
 }
 
 function drawScore() {
-  ctx.font = "16px Amiko";
-  ctx.fillStyle = "white";
+  ctx.font = "16px Comic Sans";
+  ctx.fillStyle = "ghostwhite";
   ctx.fillText(`Score: ${score}`, 8, 20);
 }
 
 function drawLives() {
-  ctx.font = "16px Amiko";
-  ctx.fillStyle = "white";
+  ctx.font = "16px Comic Sans";
+  ctx.fillStyle = "ghostwhite";
   ctx.fillText(`Lives: ${lives}`, canvas.width - 95, 20);
 }
 
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-  ctx.fillStyle = "#FBFBFF";
+  ctx.fillStyle = "ghostwhite";
   ctx.fill();
   ctx.closePath();
 }
@@ -107,7 +107,7 @@ function drawBall() {
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-  ctx.fillStyle = "#FBFBFF";
+  ctx.fillStyle = "ghostwhite";
   ctx.fill();
   ctx.closePath();
 }
@@ -122,7 +122,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "lightgreen";
         ctx.fill();
         ctx.closePath();
       }
